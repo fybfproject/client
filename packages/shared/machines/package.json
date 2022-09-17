@@ -1,0 +1,14 @@
+{
+  "name": "@fybf/shared.machines",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint ./src/**/*.ts"
+  },
+  "devDependencies": {
+    "@fybf/config.tsconfig": "*",
+    "@fybf/config.eslint": "*",
+    "typescript": "^4.5.2",
+    "eslint": "^7.32.0"
+  }
+}
