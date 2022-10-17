@@ -1,7 +1,15 @@
-import { FC, PropsWithChildren } from 'react';
+import { styled, ComponentProps } from '@fybf/shared.theme';
 
-export interface ButtonProps {}
+export const Button = styled('button', {
+  width: 'fit-content',
+  color: 'white',
+  border: 'none',
+  fontSize: '$md',
+  fontFamily: '$body',
+  borderRadius: '4px',
+  paddingBlock: '$sm',
+  paddingInline: '$md',
+  backgroundColor: '$gray-900',
+});
 
-export const Button: FC<PropsWithChildren<ButtonProps>> = ({ children }) => {
-  return <button>{children}</button>;
-};
+export type ButtonProps = ComponentProps<typeof Button>;
