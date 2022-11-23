@@ -1,11 +1,13 @@
-import { NextPage } from 'next';
+import { CustomNextPage } from 'next';
+import { useSession } from 'next-auth/react';
 
 import { styled } from '@fybf/shared.theme';
-import { Button } from '@fybf/shared.ui';
+import { MainLayout } from '@/components/layouts';
 
 const StyledFlex = styled('div', {
   gap: '$sm',
   display: 'flex',
+  overflow: 'auto',
   flexDirection: 'column',
 });
 
@@ -14,13 +16,24 @@ const StyledText = styled('p', {
   fontSize: '$md',
 });
 
-const MainPage: NextPage = () => {
+const StyledPre = styled('pre', {
+  color: '$gray-900',
+  fontSize: '$md',
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+});
+
+const HomePage: CustomNextPage = () => {
+  const { data } = useSession();
+
   return (
-    <StyledFlex>
-      <StyledText>Hello World</StyledText>
-      <Button>Foo Bar</Button>
+    <StyledFlex css={{ width: '100%', height: '100%', padding: '$lg' }}>
+      {!!data?.user && <StyledPre>{JSON.stringify(data, null, 2)}</StyledPre>}
     </StyledFlex>
   );
 };
 
-export default MainPage;
+HomePage.protected = true;
+HomePage.getLayout = (page) => <MainLayout>{page}</MainLayout>;
+
+export default HomePage;
