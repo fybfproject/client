@@ -16,9 +16,9 @@ export async function apiClient<Body, Response = null>(
     url,
     data,
     method,
-    baseURL: 'http://localhost:3000',
+    baseURL: process.env.API_URL,
     headers: {
-      authorization: token || false,
+      Authorization: (token && `Bearer ${token}`) || false,
     },
   });
 }
