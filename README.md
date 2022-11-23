@@ -1,5 +1,7 @@
 ### @fybf/client
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/10d5632c-1a43-4682-bc3d-9a3d90d40096/deploy-status)](https://app.netlify.com/sites/findyourbestfriend/deploys)
+
 Esse é projeto client do Find Your Best Friend. O projeto consiste em um mono-repositório utilizando o [Turborepo](https://turborepo.org/) para gerenciar os pacotes.
 
 ### Arquitetura
