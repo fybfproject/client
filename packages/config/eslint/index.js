@@ -1,11 +1,11 @@
 module.exports = {
   extends: ["next", "turbo", "prettier"],
   rules: {
-    'no-console': 'warn',
     "react/jsx-key": "off",
     "@next/next/no-html-link-for-pages": "off",
+    "turbo/no-undeclared-env-vars": "off"
   },
-   settings: {
+  settings: {
     next: {
       rootDir: ["../../apps/*/"],
     },

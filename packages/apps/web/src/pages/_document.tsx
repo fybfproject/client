@@ -1,5 +1,6 @@
-import { getCssText, resetStyles } from '@fybf/shared.theme';
 import { Html, Head, Main, NextScript } from 'next/document';
+
+import { getCssText, resetStyles } from '@fybf/shared.theme';
 
 const Document = () => {
   resetStyles();

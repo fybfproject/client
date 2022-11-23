@@ -12,7 +12,6 @@
     "@types/react-dom": "^18.0.6",
     "@fybf/config.eslint": "*",
     "@fybf/config.tsconfig": "*",
-    "@fybf/shared.ui": "*",
     "typescript": "^4.5.2",
     "eslint": "^7.32.0",
     "react": "^18.2.0"

@@ -7,9 +7,14 @@ export const Button = styled('button', {
   fontSize: '$md',
   fontFamily: '$body',
   borderRadius: '4px',
-  paddingBlock: '$sm',
-  paddingInline: '$md',
+  paddingBlock: '$md',
+  paddingInline: '$lg',
   backgroundColor: '$gray-900',
+  transition: 'background-color 0.2s ease-in-out',
+
+  '&:hover': {
+    backgroundColor: '$gray-800',
+  },
 });
 
 export type ButtonProps = ComponentProps<typeof Button>;
