@@ -2,6 +2,8 @@
   "tabWidth": 2,
   "useTabs": false,
   "semi": true,
+  "arrowParens": "always",
+  "trailingComma": "all",
   "singleQuote": true,
   "bracketSpacing": true,
   "endOfLine": "lf"
