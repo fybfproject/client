@@ -1,4 +1,4 @@
-### @fybf
+### @fybf/client
 
 Esse é projeto client do Find Your Best Friend. O projeto consiste em um mono-repositório utilizando o [Turborepo](https://turborepo.org/) para gerenciar os pacotes.
 
