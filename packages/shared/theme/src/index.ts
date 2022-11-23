@@ -1,8 +1,9 @@
-import { createStitches } from '@stitches/react';
-export type { ComponentProps } from '@stitches/react';
+import { createStitches, ComponentProps } from '@stitches/react';
 
 import { colors, space, fonts, fontSizes } from './foundations';
+
 export { colors, space, fonts, fontSizes } from './foundations';
+export { ComponentProps };
 
 export const { styled, css, globalCss, getCssText } = createStitches({
   theme: {
@@ -19,6 +20,11 @@ export const resetStyles = globalCss({
     padding: 0,
     boxSizing: 'border-box',
     outline: 0,
+  },
+  '#__next': {
+    width: '100vw',
+    height: '100vh',
+    overflow: 'auto',
   },
   body: {
     fontFamily: '$body',
