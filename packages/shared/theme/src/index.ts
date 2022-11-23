@@ -3,7 +3,7 @@ import { createStitches, ComponentProps } from '@stitches/react';
 import { colors, space, fonts, fontSizes } from './foundations';
 
 export { colors, space, fonts, fontSizes } from './foundations';
-export { ComponentProps };
+export type { ComponentProps };
 
 export const { styled, css, globalCss, getCssText } = createStitches({
   theme: {
