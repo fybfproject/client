@@ -1,0 +1,9 @@
+{
+  "extends": "@fybf/config.tsconfig/lib/base.json",
+  "include": ["."],
+  "exclude": ["dist", "build", "node_modules"],
+  "compilerOptions": {
+    "isolatedModules": false,
+    "baseUrl": "."
+  }
+}

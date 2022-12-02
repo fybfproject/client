@@ -1,16 +1,36 @@
 import { createStitches, ComponentProps } from '@stitches/react';
 
-import { colors, space, fonts, fontSizes } from './foundations';
+import {
+  colors,
+  space,
+  fonts,
+  fontSizes,
+  fontWeights,
+  radii,
+  media,
+} from './foundations';
 
-export { colors, space, fonts, fontSizes } from './foundations';
+export {
+  colors,
+  space,
+  fonts,
+  fontSizes,
+  fontWeights,
+  radii,
+  media,
+} from './foundations';
+
 export type { ComponentProps };
 
-export const { styled, css, globalCss, getCssText } = createStitches({
+export const { styled, css, globalCss, getCssText, config } = createStitches({
+  media,
   theme: {
     colors,
     space,
     fonts,
     fontSizes,
+    fontWeights,
+    radii,
   },
 });
 

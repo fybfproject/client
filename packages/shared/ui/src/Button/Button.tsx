@@ -4,16 +4,40 @@ export const Button = styled('button', {
   width: 'fit-content',
   color: 'white',
   border: 'none',
-  fontSize: '$md',
+  fontSize: '$sm',
   fontFamily: '$body',
-  borderRadius: '4px',
+  transition: 'background-color 0.2s ease-in-out',
+  borderRadius: '$xs',
   paddingBlock: '$md',
   paddingInline: '$lg',
-  backgroundColor: '$gray-900',
-  transition: 'background-color 0.2s ease-in-out',
+  pointerEvents: 'all',
+  backgroundColor: '$primary-500',
+  fontWeight: 500,
 
   '&:hover': {
-    backgroundColor: '$gray-800',
+    backgroundColor: '$primary-600',
+  },
+
+  variants: {
+    secondary: {
+      true: {
+        color: '$primary-700',
+        border: '1px solid $primary-500',
+        backgroundColor: 'white',
+
+        '&:hover': {
+          backgroundColor: '$primary-200',
+        },
+      },
+    },
+
+    disabled: {
+      true: {
+        opacity: 0.5,
+        userSelect: 'none',
+        pointerEvents: 'none',
+      },
+    },
   },
 });
 

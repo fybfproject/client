@@ -13,6 +13,9 @@
     "build": "turbo run build",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
+  "dependencies": {
+    "@fybf/shared.theme": "*"
+  },
   "devDependencies": {
     "@fybf/config.eslint": "*",
     "prettier": "latest",
@@ -20,6 +23,5 @@
   },
   "engines": {
     "node": ">=14.0.0"
-  },
-  "dependencies": {}
+  }
 }
