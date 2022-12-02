@@ -31,3 +31,7 @@ yarn-error.log*
 
 # turbo
 .turbo
+
+# service worker
+sw.*
+workbox-*
