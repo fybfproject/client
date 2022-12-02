@@ -33,8 +33,6 @@ const ConfirmPage: NextPage = () => {
         if (!!response) router.replace('/auth/login');
       }
     } catch (error) {
-      console.log(error);
-
       router.replace('/auth/login');
     }
   };
@@ -50,19 +48,25 @@ const ConfirmPage: NextPage = () => {
   return (
     <StyledFlex
       css={{
+        gap: '$lg',
         width: '100%',
         height: '100%',
-        justifyContent: 'center',
         alignItems: 'center',
-        gap: '$lg',
+        justifyContent: 'center',
       }}
     >
       <StyledFlex>
         <StyledText
-          css={{ fontWeight: 'bold', fontSize: '$lg', textAlign: 'center' }}
+          css={{
+            color: '$primary-500',
+            fontSize: '$lg',
+            textAlign: 'center',
+            fontWeight: 'bold',
+          }}
         >
           Confirmar Conta
         </StyledText>
+
         <StyledText css={{ color: '$gray-700', textAlign: 'center' }}>
           Clique no botão abaixo para confirmar e<br /> conseguir utilizar a sua
           conta devidamente.

@@ -3,14 +3,7 @@ import { FC, ReactNode, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { signOut, useSession } from 'next-auth/react';
 
-import { styled } from '@fybf/shared.theme';
-
-const StyledFlex = styled('div', {
-  gap: '$sm',
-  display: 'flex',
-  overflow: 'auto',
-  flexDirection: 'column',
-});
+import { Flex, Image } from '@fybf/shared.ui';
 
 export const AuthWrapper: FC<{ children: ReactNode }> = ({ children }) => {
   const router = useRouter();
@@ -26,16 +19,26 @@ export const AuthWrapper: FC<{ children: ReactNode }> = ({ children }) => {
 
   if (status === 'loading' || !!data.refresh_token_expired) {
     return (
-      <StyledFlex
+      <Flex
+        align="center"
+        justify="center"
         css={{
-          justifyContent: 'center',
-          alignItems: 'center',
           height: '100vh',
           fontSize: '$md',
+          backgroundColor: '$primary-500',
         }}
       >
-        Loading...
-      </StyledFlex>
+        <Flex css={{ width: '250px' }}>
+          <Image
+            alt="logo"
+            src="/logo.png"
+            css={{
+              width: '100%',
+              height: '100%',
+            }}
+          ></Image>
+        </Flex>
+      </Flex>
     );
   }
 

@@ -35,7 +35,7 @@ declare module 'next-auth/jwt' {
 declare module 'next/app' {
   type CustomAppProps = AppProps & {
     Component: NextComponentType & {
-      protected: boolean;
+      protected?: boolean;
       getLayout?: (page: ReactElement) => ReactNode;
     };
   };
@@ -43,7 +43,7 @@ declare module 'next/app' {
 
 declare module 'next' {
   type CustomNextPage<P = {}, IP = P> = NextPage<P, IP> & {
-    protected: boolean;
+    protected?: boolean;
     getLayout?: (page: ReactElement) => ReactNode;
   };
 }
