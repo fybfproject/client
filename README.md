@@ -1,6 +1,10 @@
 ### @fybf/client
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/10d5632c-1a43-4682-bc3d-9a3d90d40096/deploy-status)](https://app.netlify.com/sites/findyourbestfriend/deploys)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=FindYourBestFriend_client&metric=bugs)](https://sonarcloud.io/summary/new_code?id=FindYourBestFriend_client)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=FindYourBestFriend_client&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=FindYourBestFriend_client)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=FindYourBestFriend_client&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=FindYourBestFriend_client)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=FindYourBestFriend_client&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=FindYourBestFriend_client)
 
 Esse é projeto client do Find Your Best Friend. O projeto consiste em um mono-repositório utilizando o [Turborepo](https://turborepo.org/) para gerenciar os pacotes.
 
