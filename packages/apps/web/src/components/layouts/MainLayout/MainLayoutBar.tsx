@@ -6,13 +6,7 @@ import { useRouter } from 'next/router';
 import { signOut, useSession } from 'next-auth/react';
 
 import { FaMap, FaMapMarkerAlt } from 'react-icons/fa';
-import {
-  MdAdd,
-  MdLogout,
-  MdOutlineLogout,
-  MdPerson,
-  MdPets,
-} from 'react-icons/md';
+import { MdAdd, MdOutlineLogout, MdPets } from 'react-icons/md';
 
 import { Flex } from '@fybf/shared.ui';
 

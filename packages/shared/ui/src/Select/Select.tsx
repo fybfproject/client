@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import { FC, ForwardedRef, forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import { ComponentProps, styled } from '@fybf/shared.theme';
 

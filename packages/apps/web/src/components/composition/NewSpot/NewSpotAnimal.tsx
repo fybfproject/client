@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Controller, useFormContext } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 
 import { Button, Flex, Input, Select, Text, Textarea } from '@fybf/shared.ui';
 import { AnimalType } from '@fybf/shared.types';

@@ -2,8 +2,6 @@ import { FC, ReactNode, useMemo } from 'react';
 
 import { FaCat, FaDog, FaQuestion } from 'react-icons/fa';
 
-import dayjs from 'dayjs';
-
 import { Flex, Image, Text } from '@fybf/shared.ui';
 import { Animal, AnimalType } from '@fybf/shared.types';
 
@@ -20,16 +18,6 @@ export const AnimalsCard: FC<AnimalsCardProps> = ({ animal }) => {
     };
 
     return icon[animal.type];
-  }, [animal]);
-
-  const getAnimalType = useMemo(() => {
-    const type: Record<AnimalType, string> = {
-      [AnimalType.Cat]: 'Gato',
-      [AnimalType.Dog]: 'Cachorro',
-      [AnimalType.Other]: 'Outro',
-    };
-
-    return type[animal.type];
   }, [animal]);
 
   return (

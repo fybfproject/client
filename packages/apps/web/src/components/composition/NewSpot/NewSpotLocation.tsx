@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 
 import { useFormContext } from 'react-hook-form';
 
-import { Button, Flex, Input, Select, Text, Textarea } from '@fybf/shared.ui';
+import { Button, Flex, Text, Textarea } from '@fybf/shared.ui';
 
 import { useNewSpotContext } from '@/context/new';
 
