@@ -1,4 +1,3 @@
-export * from './auth';
 export * from './animal';
+export * from './user';
 export * from './spot';
-export * from './public';

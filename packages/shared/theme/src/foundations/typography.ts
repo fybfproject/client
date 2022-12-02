@@ -1,8 +1,8 @@
 export const fontSizes = {
-  xs: '8px',
-  sm: '12px',
-  md: '14px',
-  lg: '24px',
+  xs: '12px',
+  sm: '14px',
+  md: '16px',
+  lg: '20px',
   xl: '32px',
   '2xl': '40px',
   '3xl': '48px',
@@ -14,4 +14,10 @@ export const fontSizes = {
 export const fonts = {
   body: 'Inter',
   system: 'system-ui',
+};
+
+export const fontWeights = {
+  normal: 400,
+  medium: 500,
+  bold: 700,
 };
