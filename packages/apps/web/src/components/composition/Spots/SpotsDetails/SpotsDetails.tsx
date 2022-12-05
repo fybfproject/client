@@ -35,6 +35,7 @@ export const SpotsDetails: FC = () => {
         borderRadius: '$sm',
         pointerEvents: 'all',
         backgroundColor: 'white',
+        flex: 2,
       }}
     >
       <Flex
