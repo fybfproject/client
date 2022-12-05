@@ -1,5 +1,5 @@
-import type { DefaultSession } from 'next-auth';
-import type { NextComponentType, NextPage } from 'next';
+import type { DefaultSession, Session } from 'next-auth';
+import type { NextComponentType, NextPage, NextPageContext } from 'next';
 import type { AppProps } from 'next/app';
 import { ReactNode } from 'react';
 
@@ -33,10 +33,13 @@ declare module 'next-auth/jwt' {
 }
 
 declare module 'next/app' {
-  type CustomAppProps = AppProps & {
-    Component: NextComponentType & {
+  type CustomAppProps<P = Record<string, unknown>> = AppProps<P> & {
+    Component: NextComponentType<NextPageContext, any, P> & {
       protected?: boolean;
       getLayout?: (page: ReactElement) => ReactNode;
+    };
+    pageProps: P & {
+      session?: Session;
     };
   };
 }
