@@ -1,5 +1,4 @@
 import { SessionProvider } from 'next-auth/react';
-import { Session } from 'next-auth';
 
 import type { CustomAppProps } from 'next/app';
 
