@@ -1,10 +1,10 @@
 import { CustomNextPage, GetServerSideProps } from 'next';
 
 import { useSession } from 'next-auth/react';
+import { useQuery } from 'react-query';
 
 import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
-
 import axios from 'axios';
 
 import { Button, Flex } from '@fybf/shared.ui';
@@ -31,8 +31,23 @@ interface NextPageProps {
 const SpotsPage: CustomNextPage<NextPageProps> = ({ spots = [] }) => {
   const { data } = useSession();
 
+  const getSpotsQuery = useQuery(
+    ['query:spots'],
+    async () => {
+      const { data } = await listPublicSpotsService();
+
+      for (const spot of data as SpotWithAddress[]) getSpotAddress(spot);
+
+      return data as SpotWithAddress[];
+    },
+    {
+      initialData: spots,
+      refetchOnWindowFocus: false,
+    },
+  );
+
   return (
-    <SpotsProvider spots={spots}>
+    <SpotsProvider spots={getSpotsQuery?.data || []}>
       <Flex
         css={{
           width: '100%',
@@ -84,21 +99,25 @@ const SpotsPage: CustomNextPage<NextPageProps> = ({ spots = [] }) => {
   );
 };
 
+const NOMINATIM_URL = 'https://nominatim.openstreetmap.org/';
+
+const getSpotAddress = async (spot: SpotWithAddress) => {
+  const { data } = await axios.get(
+    `${NOMINATIM_URL}/reverse?format=json&lat=${spot.latitude}&lon=${spot.longitude}&zoom=18&addressdetails=1`,
+  );
+
+  spot.address = `${data.address.road} ${
+    data.address.suburb ? `- ${data.address.suburb}` : ''
+  }`;
+};
+
 export const getServerSideProps: GetServerSideProps<
   NextPageProps
 > = async () => {
   try {
     const { data } = await listPublicSpotsService();
 
-    for (const spot of data as SpotWithAddress[]) {
-      const { data } = await axios.get(
-        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${spot.latitude}&lon=${spot.longitude}&zoom=18&addressdetails=1`,
-      );
-
-      spot.address = `${data.address.road} ${
-        data.address.suburb ? `- ${data.address.suburb}` : ''
-      }`;
-    }
+    for (const spot of data as SpotWithAddress[]) getSpotAddress(spot);
 
     return {
       props: {
