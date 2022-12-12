@@ -10,7 +10,11 @@ Esse é projeto client do Find Your Best Friend. O projeto consiste em um mono-r
 
 ### Sobre
 
-A plataforma Find Your Best Friend é um projeto que possui como objetivo ajudar pessoas a encontram seus animais perdidos por meio de avistamentos criados por pessoas da comunidade. Esses avistamentos registram a localização, imagem e informações do animal avistado, possibilitando que seus donos possam encontrá-los.
+A plataforma Find Your Best Friend é um projeto que possui como objetivo ajudar pessoas a encontram seus animais perdidos por meio de avistamentos criados por pessoas da comunidade. Esses avistamentos registram a localização, imagem e informações do animal avistado, possibilitando que seus donos possam encontrá-los. Além disso a plataforma também pode ser utilizada através do Desktop e da aplicação PWA otmizada para dispositivos móveis, facilitando o cadastro de novos avistamentos como se fosse um aplicativo nativo.
+
+### Projeto
+
+Esse repositório é responsável por toda a estrutura Client da plataforma do Find Your Best Friend, utilizando de tecnologias atuais utilizas por diversas grandes empresas, como [Vercel](https://vercel.com/), [WorkOS](https://workos.com/) e [Linear](https://linear.app/). O projeto é estruturado de uma forma que qualquer desenvolvedor consiga entender seu código e prosseguir com qualquer tipo de novo desenvolvimento. Essa arquitetura também utiliza de ferramentas de CI/CD (Netlify/SonarCloud) que proporcionam uma grande escalabilidade para o projeto.
 
 ### Arquitetura
 
