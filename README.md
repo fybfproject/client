@@ -16,6 +16,15 @@ A plataforma Find Your Best Friend é um projeto que possui como objetivo ajudar
 
 Esse repositório é responsável por toda a estrutura Client da plataforma do Find Your Best Friend, utilizando de tecnologias atuais utilizas por diversas grandes empresas, como [Vercel](https://vercel.com/), [WorkOS](https://workos.com/) e [Linear](https://linear.app/). O projeto é estruturado de uma forma que qualquer desenvolvedor consiga entender seu código e prosseguir com qualquer tipo de novo desenvolvimento. Essa arquitetura também utiliza de ferramentas de CI/CD (Netlify/SonarCloud) que proporcionam uma grande escalabilidade para o projeto.
 
+### Funcionalidades
+
+Esse projeto possui algumas funcionalidades chaves para o devido funcionamento do Find Your Best Friend:
+- **Listagem de Avistamentos no Mapa:** O projeto utiliza do MapBox para exibir todos os Avistamentos em uma determinada região de forma interativa
+- **Criação de Avistamentos:** O projeto utiliza de API nativas para consumir a câmera do usuário e possibilitar a captura da imagem do avistamento, além de poder detalhar mais informações sobre o avistamento
+- **Autenticação de Usuário:** O projeto utiliza de bibliotecas flexíveis para permitir o devido gerênciamento do usuário, possibilitando a criação/autenticação de contas
+- **Visualização de Animais Criados:** O projeto possibilita a listagem de todos os animais criados pelo usuário autenticado
+- **Visualização de Avistamentos Criados:** O projeto possibilita a listagem de todos os avistamentos criados pelo usuário autenticado
+
 ### Arquitetura
 
 A arquitetura do projeto segue o seguinte diagrama:
