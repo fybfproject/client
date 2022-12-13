@@ -24,27 +24,28 @@ const SpotsMapWithoutSSR = dynamic(
   { ssr: false },
 );
 
-interface NextPageProps {
-  spots: SpotWithAddress[];
-}
+const NOMINATIM_URL = 'https://nominatim.openstreetmap.org/';
 
-const SpotsPage: CustomNextPage<NextPageProps> = ({ spots = [] }) => {
+const getSpotAddress = async (spot: SpotWithAddress) => {
+  const { data } = await axios.get(
+    `${NOMINATIM_URL}/reverse?format=json&lat=${spot.latitude}&lon=${spot.longitude}&zoom=18&addressdetails=1`,
+  );
+
+  spot.address = `${data.address.road} ${
+    data.address.suburb ? `- ${data.address.suburb}` : ''
+  }`;
+};
+
+const SpotsPage: CustomNextPage = () => {
   const { data } = useSession();
 
-  const getSpotsQuery = useQuery(
-    ['query:spots'],
-    async () => {
-      const { data } = await listPublicSpotsService();
+  const getSpotsQuery = useQuery(['query:spots'], async () => {
+    const { data } = await listPublicSpotsService();
 
-      for (const spot of data as SpotWithAddress[]) getSpotAddress(spot);
+    for (const spot of data as SpotWithAddress[]) await getSpotAddress(spot);
 
-      return data as SpotWithAddress[];
-    },
-    {
-      initialData: spots,
-      refetchOnWindowFocus: false,
-    },
-  );
+    return data as SpotWithAddress[];
+  });
 
   return (
     <SpotsProvider spots={getSpotsQuery?.data || []}>
@@ -97,45 +98,6 @@ const SpotsPage: CustomNextPage<NextPageProps> = ({ spots = [] }) => {
       </Flex>
     </SpotsProvider>
   );
-};
-
-const NOMINATIM_URL = 'https://nominatim.openstreetmap.org/';
-
-const getSpotAddress = async (spot: SpotWithAddress) => {
-  const { data } = await axios.get(
-    `${NOMINATIM_URL}/reverse?format=json&lat=${spot.latitude}&lon=${spot.longitude}&zoom=18&addressdetails=1`,
-  );
-
-  spot.address = `${data.address.road} ${
-    data.address.suburb ? `- ${data.address.suburb}` : ''
-  }`;
-};
-
-export const getServerSideProps: GetServerSideProps<
-  NextPageProps
-> = async () => {
-  try {
-    const { data } = await listPublicSpotsService();
-
-    for (const spot of data as SpotWithAddress[]) getSpotAddress(spot);
-
-    return {
-      props: {
-        spots: data as SpotWithAddress[],
-      },
-    };
-  } catch (error: any) {
-    console.log(
-      '[page/spots] Error responding: ',
-      error?.response?.data || 'Failed to fetch spots',
-    );
-
-    return {
-      props: {
-        spots: [],
-      },
-    };
-  }
 };
 
 SpotsPage.getLayout = (page) => <MainLayout>{page}</MainLayout>;
